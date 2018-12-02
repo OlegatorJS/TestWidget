@@ -2,8 +2,8 @@ var util = {
     dates:{
         days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
         daysShort: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
-        months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-        monthslow: ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"],
+        //months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        //monthslow: ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"],
         monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     },
     separators: [' ', ',', '-', '\\.', '/', ':'],
@@ -66,9 +66,9 @@ var util = {
     },
     template:   '<div class="datepickerbody">'+
                     '<div class="head">'+
-                        '<div class="dec control"><i class="fas fa-angle-left"></i></div>'+
+                        '<div class="dec control"></div>'+
                         '<div class="display"></div>'+
-                        '<div class="inc control"><i class="fas fa-angle-right"></i></div>'+
+                        '<div class="inc control"></div>'+
                     '</div>'+
                     '<div class="body">'+
                         '<div class="daysview">'+
@@ -84,7 +84,7 @@ var util = {
                     '</div>'+
                     '<div class="today">Today</div>'+
                 '</div>',
-    secretTemplate: '<span><span class="button-show"><i class="far fa-calendar-alt"></i></span></span>',
+    secretTemplate: '<span><span class="button-show"></span></span>',
     suggestionTemplate: '<div><input class="suggestion" disabled type="text"></div>'
 };
 

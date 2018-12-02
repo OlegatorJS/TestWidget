@@ -1,20 +1,90 @@
+body {
+    font-family: Lato;
+    font-style: Normal;
+    font-weight: 300;
+}
+form {
+    font-family: Lato;
+    font-style: Normal;
+    font-weight: 300;
+    width:330px;
+    height: 220px;
+    margin: 0 auto;
+    
+}
 
+#range {
+    font-family: Lato;
+    font-style: Normal;
+    font-weight: 300;
+    width: 100%;
+    height: 40px;
+}
+
+#timezone {
+    font-family: Lato;
+    font-style: Normal;
+    font-weight: 300;
+    margin-top: 3%;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 3%;
+}
+
+#cancel {
+    font-family: Lato;
+    font-style: Normal;
+    font-weight: 300;
+    background-color: #fff;
+    border:1px solid;
+    margin-right: 10px;
+    width: 75px;
+    height: 30px;
+    float: right;
+}
+#apply {
+    font-family: Lato;
+    font-style: Normal;
+    font-weight: 300;
+    background-color: rgb(255, 0, 0);
+    border:1px solid rgb(255, 0, 0) ;
+    width: 75px;
+    height: 30px;
+    float: right;
+    color: #fff;
+}
+.div1{    
+    width: 50%;
+    float: left;
+}
+.div2{    
+    width: 50%;   
+    margin-left: 50%;
+}
+
+div.datepicker-group {
+    display: inline-block;
+    border: 1px solid;
+    height: 39px;
+}
 
 div.centered {
-    width: 400px;
+    border: 1px solid;
+    width: 350px;
     margin: 0 auto;
 }
 
 div.datepickerbody {
     width: 330px;
-    height: 345px;
+    height: 330px;
     position: absolute;
-    background-color: #323439;
+    border: 1px solid;
     -webkit-user-select: none;
     user-select: none;
     font-family: Lato;
     font-style: Normal;
     font-weight: 300;
+    background-color: #fff;
 }
 
 div.datepickerbody div.body {
@@ -32,12 +102,22 @@ div.yearsview {
 div.datepickerbody div.head{
     width: 100%;
     height: 50px;
-    background-color: #5a5b5f;
+    background-color: #fff;
+    z-index: 100;
 }
-
+input.datepicker1{
+    width: 109px;
+    padding: 10px;
+    font-family: Lato;
+    font-style: Normal;
+    font-weight: 300;
+    font-size: 12pt;
+    z-index: 11;
+    position: relative;
+    border: none;
+}
 input.datepicker{
-    width: 268px;
-    height: 18px;
+    width: 100px;
     padding: 10px;
     font-family: Lato;
     font-style: Normal;
@@ -46,19 +126,18 @@ input.datepicker{
     border: none;
     z-index: 11;
     position: relative;
-    background: transparent;
 }
 
 input.suggestion{
-    width: 278px;
-    height: 18px;
+    width: 90px;
+    height: 10px;
     padding: 10px;
     font-family: Lato;
     font-style: Normal;
     font-weight: 300;
     font-size: 12pt;
-    border: none;
-
+    border: 1 px solid black;
+    background-color: #fff;
     z-index: 10;
     position: relative;
     top: -39px;
@@ -66,7 +145,7 @@ input.suggestion{
 }
 
 input.suggestion[disabled] {
-    color: #d7d7d7;
+    color: #fff;
 }
 
 div.body div.calendar {
@@ -88,10 +167,9 @@ div.day {
     height: 30px;
     margin: 0px 5px;
     float: left;
-    background-color: #323439;
-    font-weight: 100;
+    font-weight: 300;
     font-family: Lato;
-    color: #fff;
+    color: #323439;
     text-align: center;
     vertical-align: middle;
     line-height: 30px;
@@ -108,13 +186,13 @@ div.month {
     height: 32px;
     margin: 10px 28px 10px 28px;
     font-family: Lato;
-    color: #fff;
+    color: #323439;
     text-align: center;
     vertical-align: middle;
     line-height: 32px;
     float: left;
     cursor: pointer;
-    font-weight: 100;
+    font-weight: 300;
 
     -webkit-transition: color 0.2s ease-in;
     transition: color 0.2s ease-in;
@@ -127,12 +205,12 @@ div.year {
     margin: 10px 11px 13px 11px;
     font-size: 11pt;
     font-family: Lato;
-    color: #fff;
+    color: #323439;
     text-align: center;
     vertical-align: middle;
     float: left;
     cursor: pointer;
-    font-weight: 100;
+    font-weight: 300;
 
     -webkit-transition: color 0.2s ease-in;
     transition: color 0.2s ease-in;
@@ -144,9 +222,9 @@ div.dow {
     height: 30px;
     margin: 0px 5px;
     font-family: Lato;
-    color: #fff;
+    color: #323439;
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 600;
     text-align: center;
     line-height: 30px;
     vertical-align: middle;
@@ -160,10 +238,10 @@ div.display {
     float: left;
     cursor: pointer;
     text-align: center;
-    color: #fff;
+    color: #323439;
     line-height: 50px;
     font-size: 16px;
-    font-weight: 100;
+    font-weight: 600;
 
     -webkit-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
@@ -184,14 +262,14 @@ div.control {
     transition: all 0.2s ease-in;
 }
 
-div.control:hover,div.display:hover{
-    background-color: #323439;
+div.control:hover,div.display:hover{   
 }
 
 div.day:hover, div.day.now:hover, div.month:hover, div.year:hover{
-    color: #ADD8E6;
-    -webkit-transition: color 0.2s;
-    transition: color 0.2s;
+    background-color: #5a5b5f;
+    color: #fff;
+    border-radius: 15px;
+    font-weight: 300;
 }
 
 div.today:hover {
@@ -224,19 +302,11 @@ div.control.inc:after {
     right: 19px;
     width: 16px;
     height: 16px;
-    background: #5a5b5f;
-    border-right:1px solid #adadaf;
-    border-bottom:1px solid #adadaf;
-    -moz-transform:rotate(-45deg);
-    -webkit-transform:rotate(-45deg);
-
-    -webkit-transition: all 0.2s ease-in;
-    transition: all 0.2s ease-in;
+    background-image: url(../angle-right-solid.svg);
+    background-repeat: no-repeat;
 }
 
-div.control.dec:hover::after, div.control.inc:hover::after {
-    background-color: #323439;
-}
+
 
 
 div.control.dec:after {
@@ -247,14 +317,9 @@ div.control.dec:after {
     left: 19px;
     width: 16px;
     height: 16px;
-    background: #5a5b5f;
-    border-right:1px solid #adadaf;
-    border-bottom:1px solid #adadaf;
-    -moz-transform:rotate(135deg);
-    -webkit-transform:rotate(135deg);
-
-    -webkit-transition: all 0.2s ease-in;
-    transition: all 0.2s ease-in;
+    background-image: url(../angle-left-solid.svg);
+    background-repeat: no-repeat;
+    
 }
 
 span.button-show {
@@ -262,7 +327,6 @@ span.button-show {
     position: relative;
     bottom: 1px;
     border: none;
-    background: #ffffff;
     height: 18px;
     padding: 10px;
     cursor: pointer;
@@ -272,7 +336,7 @@ span.button-show {
 
 div.icon-1 {
     display: inline-block;
-    background: #d5d5d6;
+    background-image: url(../calendar-alt-regular.svg);
     width: 22px;
     height: 19px;
 
@@ -285,7 +349,7 @@ div.icon-2 {
     left: 2px;
     top: 3px;
     display: inline-block;
-    background: #ffffff;
+    background-image: url(../calendar-alt-regular.svg);
     width: 18px;
     height: 12px;
 }

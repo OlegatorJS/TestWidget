@@ -1,9 +1,9 @@
-var Viewtracker = require('./viewtracker'),
+let Viewtracker = require('./viewtracker'),
     util = require('./util')
 
-var Datepicker = function(el) {
+let Datepicker = function(el) {
     this.element = document.querySelector(el);
-    
+
     this.today = new Date();
     this.today.setHours(0,0,0,0);
 
@@ -16,12 +16,7 @@ var Datepicker = function(el) {
     this.element.addEventListener('focus', this.hide.bind(this), false);
     this.element.addEventListener('input', this.parse.bind(this), false);
 
-    var wrap = document.createElement('div');
-
-    document.getElementById("range").onchange = function() { targetValue = this.value;
-    console.log(targetValue);
-    
-    }
+    let wrap = document.createElement('div');
 
     wrap.innerHTML = util.template;
     this.calendar = wrap.firstChild;
@@ -30,7 +25,7 @@ var Datepicker = function(el) {
     window.addEventListener('keydown', this.keydown.bind(this));
 
     wrap.innerHTML = util.secretTemplate;
-    var buttonwrap = wrap.firstChild;
+    let buttonwrap = wrap.firstChild;
     this.showbutton = buttonwrap.querySelector('span.button-show');
     this.showbutton.addEventListener('click', this.hideshow.bind(this), false);
     util.insertAfter(buttonwrap, this.element);
@@ -54,13 +49,12 @@ var Datepicker = function(el) {
 };
 
 Datepicker.prototype = {
-    
     constructor: Datepicker,
 
     parse: function() {
-        var val = this.element.value, num;
+        let val = this.element.value, num;
         val = val.split(new RegExp(util.separators.join('|'), 'g'));
-        var templen = val.length;
+        let templen = val.length;
 
         val = val.filter(function(n){ return n != "" });
 
@@ -78,7 +72,7 @@ Datepicker.prototype = {
             return;
         }
 
-        var count = 0;
+        let count = 0;
 
         if(val.length>0) {
             if (util.checkText(val[0])) {
@@ -130,7 +124,7 @@ Datepicker.prototype = {
         }
 
         val = this.element.value;
-        var date = Date.parse(val);
+        let date = Date.parse(val);
 
         if(isNaN(date)==false) {
             this.selected = new Date(date);
@@ -150,11 +144,9 @@ Datepicker.prototype = {
         this.resetsuggestion();
     },
 
-    
-
     keydown: function(e) {
 
-        var d;
+        let d;
 
         if(!this.selected && this.isOpen()) {
             console.log(this.today.getMonth());
@@ -165,12 +157,12 @@ Datepicker.prototype = {
         }
 
         if(!this.isOpen()) {
-            var val = this.element.value;
+            let val = this.element.value;
             val = val.split(new RegExp(util.separators.join('|'), 'g'));
-            var pos = this.element.selectionStart;
+            let pos = this.element.selectionStart;
         }
 
-        if(util.varters.indexOf(e.keyCode)>-1 && pos<=val[0].length && val.length>2) {
+        if(util.letters.indexOf(e.keyCode)>-1 && pos<=val[0].length && val.length>2) {
             e.preventDefault();
             if(pos<=val[0].length) {
                 val[0] = String.fromCharCode(e.keyCode);
@@ -222,7 +214,7 @@ Datepicker.prototype = {
             e.preventDefault();
 
             d = (e.keyCode == 38) ? 1 : -1;
-            var index = this.tips.indexOf(this.suggestion.value) + d;
+            let index = this.tips.indexOf(this.suggestion.value) + d;
 
             if(index == this.tips.length) {
                 index = 0;
@@ -352,11 +344,11 @@ Datepicker.prototype = {
             this.fill();
         }
     },
-    
-    set: function() {
-        var str = '';
 
-        str += util.dates.monthsShort[this.selected.getMonth()] + " ";
+    set: function() {
+        let str = '';
+
+        str += util.dates.months[this.selected.getMonth()] + " ";
         str += this.selected.getDate() + " ";
         str += this.selected.getFullYear();
 
@@ -365,7 +357,7 @@ Datepicker.prototype = {
     },
 
     fillDow: function() {
-        var html = '',
+        let html = '',
             i = 0;
         while (i < 7) {
             html += '<div class="dow">'+util.dates.daysShort[(i++)].toUpperCase()+'</div>';
@@ -374,7 +366,7 @@ Datepicker.prototype = {
     },
 
     fillMonths: function(month) {
-        var html = '',
+        let html = '',
             cl,
             i = 0;
         while (i < 12) {
@@ -388,7 +380,7 @@ Datepicker.prototype = {
     },
 
     updateDisplay: function() {
-        var year = this.view.year,
+        let year = this.view.year,
             month = this.view.month;
 
         if(this.mode==0)
@@ -411,7 +403,7 @@ Datepicker.prototype = {
     },
 
     fill: function() {
-        var year = this.view.year,
+        let year = this.view.year,
             month = this.view.month,
             today = 0;
 
@@ -423,16 +415,16 @@ Datepicker.prototype = {
             case 0:
                 this.updateDisplay();
 
-                var prevMonth = new Date(year, month-1, 28, 0, 0, 0, 0),
+                let prevMonth = new Date(year, month-1, 28, 0, 0, 0, 0),
                     day = util.getDaysInMonth(prevMonth.getFullYear(), prevMonth.getMonth());
                 prevMonth.setDate(day);
                 prevMonth.setDate(day - (prevMonth.getDay() + 7) % 7);
 
-                var nextMonth = new Date(prevMonth);
+                let nextMonth = new Date(prevMonth);
                 nextMonth.setDate(nextMonth.getDate() + 42);
                 nextMonth = nextMonth.valueOf();
 
-                var html = "",
+                let html = "",
                     classname,
                     prevY,
                     prevM;
@@ -468,13 +460,13 @@ Datepicker.prototype = {
                 html = '';
                 year = Math.floor(year/16) * 16;
 
-                var selectedyear = 0;
+                let selectedyear = 0;
                 if(this.selected) {
                     selectedyear = this.selected.getFullYear();
                 }
 
                 this.updateDisplay();
-                for (var i = -1; i < 15; i++) {
+                for (let i = -1; i < 15; i++) {
                     html += '<div class="year'+( selectedyear === year ? ' active' : '')+'">'+year+'</div>';
                     year += 1;
                 }
@@ -509,7 +501,7 @@ Datepicker.prototype = {
     },
 
     place: function() {
-        var off = util.calculateOffset(this.element);
+        let off = util.calculateOffset(this.element);
         this.calendar.style.top = off.top + this.element.offsetHeight + 3 + 'px';
         this.calendar.style.left = off.left + 'px';
     },
@@ -517,7 +509,7 @@ Datepicker.prototype = {
     click: function(e) {
         e.preventDefault();
         e.stopPropagation();
-        var target = e.target;
+        let target = e.target;
         switch(target.className) {
             case 'inc control':
             case 'dec control':
@@ -536,7 +528,7 @@ Datepicker.prototype = {
             case 'day new':
             case 'day now':
             case 'day active':
-                    var curmonth = this.view.month;
+                    let curmonth = this.view.month;
                     if(target.className.indexOf('old') > -1) {
                        curmonth -= 1;
                        this.view.changemonth(-1);
@@ -545,7 +537,7 @@ Datepicker.prototype = {
                        curmonth += 1;
                        this.view.changemonth(1);
                     }
-                    var day = parseInt(target.innerHTML,10);
+                    let day = parseInt(target.innerHTML,10);
                     this.setSelected(this.view.year,curmonth,day);
                     this.set();
                     this.fill();
@@ -587,7 +579,6 @@ Datepicker.prototype = {
             this.yearsview.style.display = 'block';
         }
     }
-    
 };
 
 window.Datepicker = Datepicker;

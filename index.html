@@ -1,20 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 	<meta charset="UTF-8">
 	<title>TestWidget</title>
     <script src="dist/bundle.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="dist/core.css"/>
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 <body>
     <div class="centered">
-        <div class="datepicker-group">
-            <input class="datepicker" type="text">
-        </div>
+        <div class="title">Some test</div>
+        <hr>
+        <form>
+            <select id="range">
+                <option value="1">Custom</option>
+                <option value="2">Today</option>
+                <option value="3">Yesterday</option>
+                <option value="4">Last 7 days</option>
+                <option value="5">Last 30 days</option>
+                <option value="6">Last 60 days</option>
+                <option value="7">Last 90 days</option>
+            </select>
+            <select id="timezone">
+                <option>Timezone: (GMT-5:00) Eastern Time</option>
+            </select>
+            <div class="div1">From
+                <div class="datepicker-group">
+                    <input class="datepicker" type="text">
+                </div>
+            </div>
+            <div class="div2">To
+                <div class="datepicker-group">
+                    <input class="datepicker1" type="text">
+                </div>
+            </div>
+            <button id = "apply">Apply</button>
+            <button id = "cancel">Cancel</button>
+            
+        </form>
     </div>
     <script>
         var datepicker = new Datepicker('input.datepicker');
+        var datepicker = new Datepicker('input.datepicker1');
+      
     </script>
 </body>
 </html>

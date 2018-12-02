@@ -33,7 +33,7 @@ function bundle( opts ){
 
 gulp.task('build-js', function(){
 	return gulp.src('src/js/*.js')
-        .pipe(react())
+
         .pipe(gulp.dest('./dist'));
 
 })
